@@ -32,7 +32,7 @@ class Manager:
     self.orders[phoneNumber] = OrderPizza(pizzaType, name, phoneNumber, topping, sauce)
 
     print("Order created! \n")
-   # Update order for custom pizza
+# Update order for custom pizza
   def update_order(self):
     while True:
       try:
