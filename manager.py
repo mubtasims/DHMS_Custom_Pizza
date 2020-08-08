@@ -32,4 +32,57 @@ class Manager:
     self.orders[phoneNumber] = OrderPizza(pizzaType, name, phoneNumber, topping, sauce)
 
     print("Order created! \n")
-  
+   # Update order for custom pizza
+  def update_order(self):
+    while True:
+      try:
+        customer = int(input("Please enter your phone number to update your order: "))
+      except:
+        print("Please enter numbers!")
+        continue
+      else:
+        break
+
+    while customer not in self.orders:
+      while True:
+        try:
+          customer = int(input("The option you entered does not exist, please try again, or press '0' to quit: "))
+        except:
+          print("Please enter numbers!")
+          continue
+        else:
+          break
+      
+      if customer == 0:
+        return
+    
+    order = self.orders[customer]
+
+    print("""    
+                     1. Update your pizza type
+
+                     2. Update your name 
+
+                     3. Update your topping
+
+                     4. Update your sauce
+
+                     0. Cancel""")
+
+    choice = input("Enter an Option: ")
+    if(choice == '1'):
+      newType = input("New pizza type: ")
+      order.setType(newType)
+    elif(choice == '2'):
+      newName = input("New name: ")
+      order.setName(newName)
+    elif(choice == '3'):
+      newTopping = input("New topping: ")
+      order.setTopping(newTopping)
+    elif(choice == '4'):
+      newSauce = input("New sauce: ")
+      order.setSauce(newSauce)
+    else:
+      pass
+      
+    print("Done! \n")
