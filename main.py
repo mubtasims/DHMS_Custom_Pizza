@@ -1,6 +1,6 @@
 """
 class Menu
-    ｜
+    
 class Manager
 - order list: {}
 - CRUD methods
