@@ -32,6 +32,7 @@ class Manager:
     self.orders[phoneNumber] = OrderPizza(pizzaType, name, phoneNumber, topping, sauce)
 
     print("Order created! \n")
+    
 # Update order for custom pizza
   def update_order(self):
     while True:
@@ -86,3 +87,40 @@ class Manager:
       pass
       
     print("Done! \n")
+
+# Deleting order for custom Pizza
+  def delete_order(self):
+    
+    while True:
+      try:
+        customer = int(input("Please enter your phone number to update your order: "))
+      except:
+        print("Please enter numbers!")
+        continue
+      else:
+        break
+
+    while customer not in self.orders:
+      while True:
+        try:
+          customer = int(input("The option you entered does not exist please try again, or press '0' to quit: "))
+        except:
+          print("Please enter numbers!")
+          continue
+        else:
+          break
+  
+    del self.orders[customer]
+
+    print("Thank you! Your order has been deleted! \n")
+ 
+ # Read the custom pizza
+
+  def see_order(self):
+
+    if not self.orders:
+      print("No orders yet. \n")
+      return
+    
+    for order in self.orders:
+      print(self.orders.get(order))
